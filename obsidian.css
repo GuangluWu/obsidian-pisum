@@ -38,6 +38,7 @@
   --text-muted:                 #abd1c6;
   --interactive-accent:         #f9bc60;
   --interactive-before:         #001e1d;
+  --interactive-normal:         #001e1d;
   --background-modifier-border: #abd1c6;
   --blockquote-border:          #e16162;
   --text-accent:                #f9bc60;
@@ -73,6 +74,7 @@
   --text-muted:                 #abd1c6;
   --interactive-accent:         #f9bc60;
   --interactive-before:         #001e1d;
+  --interactive-normal:         #001e1d;
   --background-modifier-border: #abd1c6;
   --blockquote-border:          #e16162;
   --text-accent:                #f9bc60;
@@ -573,8 +575,8 @@ canvas {
 
 .workspace-leaf.mod-active .view-header {
     background-color: var(--background-secondary);  
-    border-top: 0px !important;
-    border-bottom: 2px solid var(--text-normal) !important;
+    border-top: 1px solid var(--text-faint) !important;
+    border-bottom: 3px solid var(--text-faint) !important;
 }
 
 .workspace-leaf.mod-active .view-header-title-container:after {
@@ -615,6 +617,17 @@ canvas {
   font-family: var(--font-family-preview);
 }
 
+.dropdown, input{
+  background-color: var(--background-secondary) !important;
+}
+
+.dropdown:hover{
+  background-color: var(--background-primary) !important; 
+}
+
+.document-search-container{
+  border-top: 1px solid var(--background-modifier-border);
+}
 /**************************************/
 /*            Side dock               */
 /**************************************/
@@ -675,6 +688,19 @@ canvas {
     color: var(--text-a) !important;
 }
 
+/*tag pane*/
+.tag-pane-tag:hover{
+  background-color: var(--background-primary) !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.tag-pane-tag-count{
+  background-color: transparent;
+}
+
 /* opened files */
 .is-active .nav-file-title {
   color: var(--text-a) !important;
@@ -690,6 +716,11 @@ canvas {
 
 .nav-folder-title:hover, .nav-file-title:hover{
     background-color: var(--background-primary) !important; 
+}
+
+/* remove the square around the indicator*/
+.nav-folder-collapse-indicator {
+  background-color: transparent !important;
 }
 
 /***************************************/
@@ -754,9 +785,14 @@ canvas {
   background-color: var(--background-secondary);
 }
 /***************************************/
-/*             notice                  */
+/*      notice and popover             */
 /***************************************/
 
 .notice {
   color: var(--interactive-before) !important;
 }
+
+.popover{
+  border: 1px solid var(--background-modifier-border)
+}
+
