@@ -47,9 +47,43 @@
   --inline-code:                #e16162;
   --vim-cursor:                 #f9bc60;
   --box-shadow:                 red;
-  --code-block:                 #e16162;;
+  --code-block:                 #e16162;
 }
 
+.theme-light
+{
+  --background-primary:         #004643;
+  --background-primary-alt:     #004643;
+  --background-secondary:       #001e1d;
+  --background-secondary-alt:   #001e1d;
+  --text-normal:                #e8e4e6;
+  --text-faint:                 #abd1c6;
+  --text-title-h1:              #d65d0e;
+  --text-title-h2:              #d79921;
+  --text-title-h3:              #98971a;
+  --text-title-h4:              #689d6a;
+  --text-title-h5:              #458588;
+  --text-title-h6:              #b16286;
+  --text-link:                  #e16162;
+  --text-a:                     #f9bc60;
+  --text-a-hover:               #e16162;
+  --text-mark:                  #8f3f71;
+  --pre-code:                   #001e1d;
+  --text-highlight-bg:          #8f3f71;
+  --text-muted:                 #abd1c6;
+  --interactive-accent:         #f9bc60;
+  --interactive-before:         #001e1d;
+  --background-modifier-border: #abd1c6;
+  --blockquote-border:          #e16162;
+  --text-accent:                #f9bc60;
+  --interactive-accent-rgb:     #f9bc60;
+  --font-family-editor:         Avenir, Avenir Next, sans-serif;
+  --font-family-preview:        Avenir, Avenir Next, sans-serif;
+  --inline-code:                #e16162;
+  --vim-cursor:                 #f9bc60;
+  --box-shadow:                 red;
+  --code-block:                 #e16162;
+}
 
 /**************************************/
 /* basic format in EDITOR and PREVIEW */
@@ -589,6 +623,15 @@ canvas {
   color: var(--text-accent) !important;
 }
 
+/*
+.side-dock-ribbon{
+  border-right: 1px solid var(--background-modifier-border) !important;
+}
+
+.side-dock-ribbon .side-dock-ribbon{
+  border-right: 0px !important;
+}
+*/
 /* hover actions on side dock navigation */
 .side-dock-ribbon-tab:hover,
 .side-dock-ribbon-tab-inner:hover,
@@ -601,8 +644,9 @@ canvas {
 
 /* to have sidebar hide and then reveal on hover */
 .app-container.is-left-sidedock-collapsed .side-dock.mod-left:not(:hover), .app-container.is-right-sidedock-collapsed .side-dock.mod-right:not(:hover) {
-  width: 0px !important;
+  width: 1px !important;
 }
+
 
 /***************************************/
 /* Side panel - File Explorer heading  */
@@ -703,6 +747,11 @@ canvas {
 
 .workspace-leaf-content{
   padding-right: 0px;
+}
+
+.side-dock-resize-handle{
+  width: 1px;
+  background-color: var(--background-secondary);
 }
 /***************************************/
 /*             notice                  */
