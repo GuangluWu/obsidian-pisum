@@ -257,6 +257,7 @@ code{
 {
     text-shadow: none !important;
     color: var(--text-faint) !important;
+    background-color: var(--background-secondary);
 }
 
 /***************************************/
@@ -700,6 +701,9 @@ canvas {
     width: 1px;
 }
 
+.workspace-leaf-content{
+  padding-right: 0px;
+}
 /***************************************/
 /*             notice                  */
 /***************************************/
