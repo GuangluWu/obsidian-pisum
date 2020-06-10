@@ -20,7 +20,7 @@
   --background-primary:         #004643;
   --background-primary-alt:     #004643;
   --background-secondary:       #001e1d;
-  --background-secondary-alt:   #001e1d;
+  --background-secondary-alt:   #003331;
   --text-normal:                #e8e4e6;
   --text-faint:                 #abd1c6;
   --text-title-h1:              #d65d0e;
@@ -47,44 +47,42 @@
   --font-family-preview:        Avenir, Avenir Next, sans-serif;
   --inline-code:                #e16162;
   --vim-cursor:                 #f9bc60;
-  --box-shadow:                 red;
   --code-block:                 #e16162;
 }
 
 .theme-light
 {
-  --background-primary:         #004643;
-  --background-primary-alt:     #004643;
-  --background-secondary:       #001e1d;
-  --background-secondary-alt:   #001e1d;
-  --text-normal:                #e8e4e6;
-  --text-faint:                 #abd1c6;
-  --text-title-h1:              #d65d0e;
-  --text-title-h2:              #d79921;
-  --text-title-h3:              #98971a;
-  --text-title-h4:              #689d6a;
-  --text-title-h5:              #458588;
-  --text-title-h6:              #b16286;
-  --text-link:                  #e16162;
-  --text-a:                     #f9bc60;
-  --text-a-hover:               #e16162;
-  --text-mark:                  #8f3f71;
-  --pre-code:                   #001e1d;
-  --text-highlight-bg:          #8f3f71;
-  --text-muted:                 #abd1c6;
-  --interactive-accent:         #f9bc60;
-  --interactive-before:         #001e1d;
+  --background-primary:         #0F1A21;
+  --background-primary-alt:     #2b4655;
+  --background-secondary:       #2b4655;
+  --background-secondary-alt:   #13212b;
+  --text-normal:                #ebeef3;
+  --text-faint:                 #899095;
+  --text-title-h1:              #679bca;
+  --text-title-h2:              #679bca;
+  --text-title-h3:              #679bca;
+  --text-title-h4:              #679bca;
+  --text-title-h5:              #679bca;
+  --text-title-h6:              #679bca;
+  --text-link:                  #dbd6b1;
+  --text-a:                     #95caf9;
+  --text-a-hover:               #8eafc1;
+  --text-mark:                  #ebcb8b;
+  --pre-code:                   #0F1A21;
+  --text-highlight-bg:          #bf616a;
+  --text-muted:                 #babfc4;
+  --interactive-accent:         #679bca;
+  --interactive-before:         #142128;
   --interactive-normal:         #001e1d;
-  --background-modifier-border: #abd1c6;
-  --blockquote-border:          #e16162;
-  --text-accent:                #f9bc60;
-  --interactive-accent-rgb:     #f9bc60;
+  --background-modifier-border: #899095;
+  --blockquote-border:          #bf616a;
+  --text-accent:                #95caf9;
+  --interactive-accent-rgb:     #d08770;
   --font-family-editor:         Avenir, Avenir Next, sans-serif;
   --font-family-preview:        Avenir, Avenir Next, sans-serif;
-  --inline-code:                #e16162;
-  --vim-cursor:                 #f9bc60;
-  --box-shadow:                 red;
-  --code-block:                 #e16162;
+  --inline-code:                #b48ead;
+  --vim-cursor:                 #ebcb8b;
+  --code-block:                 #b48ead;
 }
 
 /**************************************/
@@ -293,7 +291,7 @@ code{
 {
     text-shadow: none !important;
     color: var(--text-faint) !important;
-    background-color: var(--background-secondary);
+    background-color: var(--pre-code);
 }
 
 /***************************************/
@@ -544,14 +542,16 @@ color: var(--text-a-hover) !important;
 }
 
 canvas {
-    background-color: var(--background-secondary);
+    background-color: var(--background-secondary-alt);
     
 }
 
 /**************************************/
 /*            Status bar              */
 /**************************************/
-
+.status-bar{
+  background-color: var(--background-secondary); 
+}
 .status-bar-item
 {
   font-family: var(--font-family-preview);
@@ -602,7 +602,7 @@ canvas {
 }
 
 .mod-cta, .mod-cta a {
-    color: var(--background-primary) !important;
+    color: var(--interactive-before) !important;
     font-weight: 600 !important;
     font-style: normal;
 }
@@ -618,11 +618,11 @@ canvas {
 }
 
 .dropdown, input{
-  background-color: var(--background-secondary) !important;
+  background-color: var(--background-secondary-alt) !important;
 }
 
 .dropdown:hover{
-  background-color: var(--background-primary) !important; 
+  background-color: var(--background-primary-alt) !important; 
 }
 
 .document-search-container{
@@ -631,6 +631,9 @@ canvas {
 /**************************************/
 /*            Side dock               */
 /**************************************/
+.side-dock-ribbon, .side-dock-ribbon-tab-inner {
+  background-color: var(--background-secondary) !important;
+}
 
 .side-dock-ribbon-tab.is-active {
   color: var(--text-accent) !important;
@@ -679,7 +682,7 @@ canvas {
 
 /* SEARCH panel background */
 .side-dock-panels-container {
-  background-color: var(--background-secondary) !important;
+  background-color: var(--background-secondary-alt) !important;
   color: var(--text-normal);
 }
 
@@ -690,7 +693,7 @@ canvas {
 
 /*tag pane*/
 .tag-pane-tag:hover{
-  background-color: var(--background-primary) !important;
+  background-color: var(--background-primary-alt) !important;
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
   border-top-left-radius: 0 !important;
@@ -715,7 +718,7 @@ canvas {
 }
 
 .nav-folder-title:hover, .nav-file-title:hover{
-    background-color: var(--background-primary) !important; 
+    background-color: var(--background-primary-alt) !important; 
 }
 
 /* remove the square around the indicator*/
@@ -731,7 +734,7 @@ canvas {
 .search-result-file-title {  
   font-weight: 600;
   color: var(--text-normal) !important;
-  background-color: var(--background-secondary-alt);
+  background-color: var(--background-secondary);
 }
 
 .search-result-file-title:hover, .search-result-file-match:hover {  
@@ -782,14 +785,15 @@ canvas {
 
 .side-dock-resize-handle{
   width: 1px;
-  background-color: var(--background-secondary);
+  background-color: var(--background-secondary-alt);
 }
 /***************************************/
 /*      notice and popover             */
 /***************************************/
 
 .notice {
-  color: var(--interactive-before) !important;
+  background-color: var(--background-primary-alt) !important;
+  color: var(--text-normal) !important;
 }
 
 .popover{
