@@ -3,7 +3,7 @@
     --font-size-normal:              15px;
     --font-size-code:                13.5px;
     --font-size-side-dock:           13.5px;
-    --font-size-side-dock-title:     18px;
+    --font-size-side-dock-title:     15px;
     --font-size-status-bar:          12px;
     --font-size-h1:                  23px;
     --font-size-h2:                  22px;
@@ -11,78 +11,193 @@
     --font-size-h4:                  20px;
     --font-size-h5:                  19px;
     --font-size-h6:                  18px;
-    --split-min-width:              700px;
-    --view-max-width:               730px;
+    --font-family-editor:            Avenir, Avenir Next, sans-serif;
+    --font-family-preview:           Avenir, Avenir Next, sans-serif;
 } 
 
-.theme-dark
-{
-  --background-primary:         #004643;
-  --background-primary-alt:     #004643;
-  --background-secondary:       #001e1d;
-  --background-secondary-alt:   #003331;
-  --text-normal:                #e8e4e6;
-  --text-faint:                 #abd1c6;
+.theme-light,
+.theme-dark {
+  --background-primary: #004643;
+  --background-primary-alt: #001e1d;
+  --background-secondary: #003331;
+  --background-secondary-alt: #001e1d;
+  --background-accent: #fff;
+  --background-modifier-border: #abd1c6;
+  --background-modifier-form-field: rgba(0, 0, 0, 0.9);
+  --background-modifier-form-field-highlighted: #003331;
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.1);
+  --background-modifier-success: #A4E7C3;
+  --background-modifier-error: #e68787;
+  --background-modifier-error-rgb: 230, 135, 135;
+  --background-modifier-error-hover: #FF9494;
+  --background-modifier-cover: rgba(0, 0, 0, 0.6);
+  --text-accent: #f9bc60;
+  --text-accent-hover: #e16162;
+  --text-normal: #e8e4e6;
+  --text-muted: #abd1c6;
+  --text-faint: #488473;
+  --text-highlight-bg: rgba(255, 255, 0, 0.4);
+  --text-error: #800000;
+  --text-error-hover: #990000;
+  --text-selection: #6bae9b;
+  --text-on-accent: #dcddde;
+  --interactive-normal: #004643;
+  --interactive-hover: #e9e9e9;
+  --interactive-accent: #488473;
+  --interactive-accent-rgb: 123, 108, 217;
+  --interactive-accent-hover: #e16162;
+  --scrollbar-active-thumb-bg: rgba(0, 0, 0, 0.2);
+  --scrollbar-bg: rgba(0, 0, 0, 0.05);
+  --scrollbar-thumb-bg: rgba(0, 0, 0, 0.1);
+
   --text-title-h1:              #d65d0e;
   --text-title-h2:              #d79921;
   --text-title-h3:              #98971a;
   --text-title-h4:              #689d6a;
   --text-title-h5:              #458588;
   --text-title-h6:              #b16286;
-  --text-link:                  #e16162;
-  --text-a:                     #f9bc60;
-  --text-a-hover:               #e16162;
-  --text-mark:                  #8f3f71;
-  --pre-code:                   #001e1d;
-  --text-highlight-bg:          #8f3f71;
-  --text-muted:                 #abd1c6;
-  --interactive-accent:         #f9bc60;
-  --interactive-before:         #001e1d;
-  --interactive-normal:         #001e1d;
-  --background-modifier-border: #abd1c6;
+  --inline-code:                #b48ead;
+  --code-block:                 #b48ead;
+  --pre-code:                   #0F1A21;
   --blockquote-border:          #e16162;
-  --text-accent:                #f9bc60;
-  --interactive-accent-rgb:     #f9bc60;
-  --font-family-editor:         Avenir, Avenir Next, sans-serif;
-  --font-family-preview:        Avenir, Avenir Next, sans-serif;
-  --inline-code:                #e16162;
-  --vim-cursor:                 #f9bc60;
-  --code-block:                 #e16162;
 }
 
-.theme-light
+/***************************************/
+/*      resize-handle                  */
+/***************************************/
+
+/*vertical resize-handle*/
+.workspace-split.mod-vertical > * > .workspace-leaf-resize-handle,
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle, 
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle{
+  width: 1px !important;
+  background-color: var(--background-modifier-border);
+}
+
+/*horizontal resize-handle*/
+.workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle{
+  height: 1px !important;
+  background-color: var(--background-modifier-border);
+}
+
+/*workspace ribbon when collapsed*/
+.workspace-ribbon.is-collapsed {
+  background-color: var(--background-primary-alt);
+}
+
+/*the vertical split*/
+.workspace-split.mod-root .workspace-split.mod-vertical .workspace-leaf-content,
+.workspace-split.mod-vertical > .workspace-split,
+.workspace-split.mod-vertical > .workspace-leaf{
+  padding-right: 0px;
+}
+
+/**************************************/
+/*        note header bar             */
+/**************************************/
+
+/* header */
+.view-header {
+  background-color: var(--background-primary) !important;   
+  border-top: 1px solid var(--background-modifier-border) !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+}
+
+.view-header-title-container:after {
+  background: linear-gradient(to bottom, transparent, #004643) !important;
+}
+
+.workspace-leaf.mod-active .view-header {
+  background-color: var(--background-secondary-alt) !important;  
+  border-top: 1px solid var(--background-modifier-border) !important;
+  border-bottom: 3px solid var(--background-modifier-border) !important;
+}
+
+.workspace-leaf.mod-active .view-header-title-container:after {
+  background: linear-gradient(to bottom, transparent, #001e1d) !important;
+}
+
+/**************************************/
+/*        background            */
+/**************************************/
+
+/*backlink pane*/
+.workspace-leaf-content[data-type="backlink"] .view-content{
+  background-color: var(--background-secondary);
+}
+
+/*status-bar*/
+.status-bar{
+  font-size: var(--font-size-status-bar);
+  background-color: var(--background-secondary-alt);
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+/*************************************/
+/*                tags               */
+/*************************************/
+
+/* Tag hover in preview */
+a.tag:hover {
+  color: var(--text-accent) !important;
+}
+
+/* Tag Color in editor and preview*/
+.cm-hashtag, a.tag {
+  color: var(--text-accent-hover) !important;
+  text-decoration: none !important;
+}
+
+/*********************************/
+/*             link              */
+/*********************************/
+
+/* link */
+a,
+.internal-link,
+.cm-hmd-internal-link,
+.cm-link,
+.cm-formatting-link,
+.cm-url {
+  text-decoration: none !important;
+}
+
+/* the url string in editor */
+.cm-s-obsidian span.cm-string{
+  color: var(--text-accent-hover) !important;
+}
+
+/* make external links italics to differentiate */
+a:not(.internal-link) {
+  font-style: italic;
+}
+
+/***************************************/
+/*             Hide Scrollbar          */
+/***************************************/
+
+/* Hide scrollbar in preview, search, file, tag, back links */
+.markdown-preview-view::-webkit-scrollbar, 
+.workspace-leaf-content::-webkit-scrollbar, 
+.workspace-leaf-content[data-type = "backlink"] .view-content::-webkit-scrollbar, 
+.search-result-container::-webkit-scrollbar,
+.nav-files-container::-webkit-scrollbar,
+.tag-pane-tags::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for editor*/
+.CodeMirror-vscrollbar {
+  display: none !important;
+}
+
+/***************************************/
+/*                Cursor               */
+/***************************************/
+
+/* Cursor color and opacity */
+.CodeMirror-cursor
 {
-  --background-primary:         #0F1A21;
-  --background-primary-alt:     #2b4655;
-  --background-secondary:       #2b4655;
-  --background-secondary-alt:   #13212b;
-  --text-normal:                #ebeef3;
-  --text-faint:                 #899095;
-  --text-title-h1:              #679bca;
-  --text-title-h2:              #679bca;
-  --text-title-h3:              #679bca;
-  --text-title-h4:              #679bca;
-  --text-title-h5:              #679bca;
-  --text-title-h6:              #679bca;
-  --text-link:                  #dbd6b1;
-  --text-a:                     #95caf9;
-  --text-a-hover:               #8eafc1;
-  --text-mark:                  #ebcb8b;
-  --pre-code:                   #0F1A21;
-  --text-highlight-bg:          #bf616a;
-  --text-muted:                 #babfc4;
-  --interactive-accent:         #679bca;
-  --interactive-before:         #142128;
-  --interactive-normal:         #001e1d;
-  --background-modifier-border: #899095;
-  --blockquote-border:          #bf616a;
-  --text-accent:                #95caf9;
-  --interactive-accent-rgb:     #d08770;
-  --font-family-editor:         Avenir, Avenir Next, sans-serif;
-  --font-family-preview:        Avenir, Avenir Next, sans-serif;
-  --inline-code:                #b48ead;
-  --vim-cursor:                 #ebcb8b;
-  --code-block:                 #b48ead;
+    opacity: 60% !important;
 }
 
 /**************************************/
@@ -93,44 +208,32 @@
 .cm-s-obsidian, .mod-single-child .cm-s-obsidian {
   font-family: var(--font-family-editor);
   font-size: var(--font-size-normal);
-  color: var(--text-normal);
   padding-left: 1% !important;
   padding-right: 1% !important;
 }
 
 /* normal text outside of headings and code of preview */
 .markdown-preview-view, .mod-single-child .markdown-preview-view {
-  font-family: var(--font-family-preview);
+  font-family: var(--font-family-editor);
   font-size: var(--font-size-normal);
-  color: var(--text-normal);
   padding-left: 2% !important;
   padding-right: 1% !important;
 }
 
 /* bold in preview and editor */
 strong, .cm-strong {
-  color: var(--text-normal) !important;
   font-weight: 600;
 }
 
 /* emphasis in preview and editor */
 em, .cm-em {
-  color: var(--text-faint);
+  color: var(--text-muted);
   font-style: italic;
 }
 
 /* strikethrough in preview and editor */
 s, .cm-strikethrough {
-  color: var(--text-faint);
-}
-
-/* highlight in preview and editor */
-mark, .cm-highlight {
-  background-color: var(--text-mark);
-  padding-top: 0px;
-  padding-bottom: 0px;
-  padding-left: 2px;
-  padding-right: 2px;
+  color: var(--text-muted);
 }
 
 /* list in editor */
@@ -142,10 +245,6 @@ mark, .cm-highlight {
 .markdown-preview-view hr {
   background-color: var(--text-faint) !important;
 }
-
-/*********************************/
-/*             image             */
-/*********************************/
 
 /* embedded images */
 img {
@@ -160,41 +259,9 @@ img:hover {
 }
 
 /*********************************/
-/*             link              */
-/*********************************/
-
-/* link */
-a,
-.internal-link,
-.cm-hmd-internal-link,
-.cm-link,
-.cm-formatting-link,
-.cm-url {
-  color: var(--text-a) !important;
-  text-decoration: none !important;
-  font-family: Avenir !important;
-}
-
-/* the url string in editor */
-.cm-s-obsidian span.cm-string{
-  color: var(--inline-code) !important;
-}
-
-/* link hover color */
-a:hover,
-.internal-link:hover {
-  color: var(--text-a-hover) !important;
-  text-decoration: none !important;
-}
-
-/* make external links italics to differentiate */
-a:not(.internal-link) {
-  font-style: italic;
-}
-
-/*********************************/
 /* Headings - EDITOR and PREVIEW */
 /*********************************/
+
 
 /* headings for editor and preview */
 .cm-header-1, .markdown-preview-view h1
@@ -202,8 +269,7 @@ a:not(.internal-link) {
   font-family: var(--font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h1);
-  font-weight: bold;
-  color: var(--text-title-h1);
+  color: var(--text-title-h2);
 }
 
 .cm-header-2, .markdown-preview-view h2
@@ -211,7 +277,6 @@ a:not(.internal-link) {
   font-family: var(--font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h2);
-  font-weight: bold;
   color: var(--text-title-h2);
 }
 
@@ -220,8 +285,7 @@ a:not(.internal-link) {
   font-family: var(--font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h3);
-  font-weight: bold;
-  color: var(--text-title-h3);
+  color: var(--text-title-h2);
 }
 
 .cm-header-4, .markdown-preview-view h4
@@ -229,8 +293,7 @@ a:not(.internal-link) {
   font-family: var(--font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h4);
-  font-weight: bold;
-  color: var(--text-title-h4);
+  color: var(--text-title-h2);
 }
 
 .cm-header-5, .markdown-preview-view h5
@@ -238,8 +301,7 @@ a:not(.internal-link) {
   font-family: var(--font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h5);
-  font-weight: bold;
-  color: var(--text-title-h5);
+  color: var(--text-title-h2);
 }
 
 .cm-header-6, .markdown-preview-view h6
@@ -247,8 +309,7 @@ a:not(.internal-link) {
   font-family: var(--font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h6);
-  font-weight: bold;
-  color: var(--text-title-h6);
+  color: var(--text-title-h2);
 }
 
 /***************************************/
@@ -317,54 +378,11 @@ code{
 }
 
 /***************************************/
-/*                Cursor               */
-/***************************************/
-
-/* Cursor on the top of text */
-.CodeMirror pre.CodeMirror-line
-{
-    z-index: auto !important;
-}
-
-/* Cursor color and opacity */
-.CodeMirror-cursor
-{
-    background-color: var(--vim-cursor) !important;
-    opacity: 60% !important;
-}
-
-/***************************************/
-/*             Hide Scrollbar          */
-/***************************************/
-
-/* Hide scrollbar in preview, search, file, tag, back links */
-.markdown-preview-view::-webkit-scrollbar, 
-.workspace-leaf-content::-webkit-scrollbar, 
-.search-result-container::-webkit-scrollbar,
-.nav-files-container::-webkit-scrollbar,
-.tag-pane-tags::-webkit-scrollbar {
-    display: none;
-}
-/* Hide scrollbar for editor*/
-.CodeMirror-vscrollbar {
-  display: none !important;
-}
-
-/***************************************/
-/*         centralize content          */
-/***************************************/
-
-.markdown-source-view, .markdown-preview-view{
-    max-width: var(--view-max-width);
-    margin:auto;
-  }
-
-/***************************************/
 /*              Brackets               */
 /***************************************/
 
 .cm-s-obsidian span.cm-formatting-link {
-  color: var(--text-a) !important;
+  color: var(--text-accent) !important;
 }
 
 /***************************************/
@@ -378,34 +396,13 @@ code{
 
 /* for preview */
 .markdown-preview-view blockquote {
-  background-color: var(--background-secondary-alt);
+  background-color: var(--background-secondary);
   border: 0px solid;
   border-color: var(--blockquote-border) !important;
   border-left-width: 3px !important;
   border-radius: 0 8px 8px 0;
   line-height: 1.5em;
   margin: 0 10px;
-}
-
-/***************************************/
-/*  tag in editor and preview          */
-/***************************************/
-
-/* Tag in preview */
-a.tag {
-  color: var(--text-link) !important;
-  font-style: normal !important;
-}
-
-/* Tag hover in preview */
-a.tag:hover {
-  color: var(--text-a) !important;
-}
-
-/* Tag Color in editor */
-.cm-hashtag {
-  color: var(--text-link) !important;
-  text-decoration: none !important;
 }
 
 /***************************************/
@@ -418,7 +415,7 @@ th {
 
 .markdown-preview-view th {
     font-weight: 800;
-    background-color: var(--background-secondary-alt) !important;
+    background-color: var(--background-secondary) !important;
 }
 
 thead {
@@ -426,8 +423,6 @@ thead {
 }
 
 .table {
-  background-color: var(--background-secondary-alt);
-  border: 1px solid var(--background-modifier-border);
   padding: 4px;
   line-height: normal;
   display: block;
@@ -454,7 +449,7 @@ thead {
 
 .markdown-preview-view .task-list-item-checkbox {
   -webkit-appearance: none;
-  top: 1.3px !important;
+  top: 0.2em !important;
   right: 4px;
   box-sizing: border-box;
   border: 1px solid  var(--text-muted);
@@ -489,6 +484,34 @@ thead {
 }
 
 /***************************************/
+/*      notice and popover             */
+/***************************************/
+
+.popover{
+  border: 1px solid var(--background-modifier-border);
+  background-color: var(--background-secondary);
+}
+
+/***************************************/
+/*            Side panel               */
+/***************************************/
+
+/* search result in backlink or file search */
+.search-result-file-title {  
+  font-size: var(--font-size-side-dock-title) ;
+}
+
+.nav-file-title, .nav-folder-title {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.search-result-file-matches {
+  font-size: var(--font-size-side-dock);
+}
+/***************************************/
 /* internal embedded link in preview   */
 /***************************************/
 
@@ -500,23 +523,13 @@ thead {
 .markdown-preview-view .markdown-embed { border:none; padding:0; margin:0; }
 .markdown-preview-view .markdown-embed-content { max-height: unset;}
 
-/* 
-.markdown-embed
-{
-  padding-left: 8px !important;
-  padding-right: 4px !important;
-  margin-left: 8px !important;
-  margin-right: 4px !important;
-}
-*/
-
 /* the link on the top right corner*/
 .markdown-embed-link {
-color: var(--text-a) !important;
+color: var(--text-accent) !important;
 }
 
 .markdown-embed-link:hover {
-color: var(--text-a-hover) !important;
+color: var(--text-accent-hover) !important;
 }
 
 /***************************************/
@@ -526,7 +539,7 @@ color: var(--text-a-hover) !important;
 .graph-view.color-fill-highlight,
 .graph-view.color-line-highlight
 {
-    color: var(--text-a) !important;
+    color: var(--text-accent) !important;
 }
 .graph-view.color-text
 {
@@ -534,269 +547,13 @@ color: var(--text-a-hover) !important;
 }
 
 .graph-view.color-line {
-    color: var(--text-a-hover);
+    color: var(--text-accent-hover);
 }
 
 .graph-view.color-fill{
-    color: var(--text-faint);
+    color: var(--text-muted);
 }
 
-canvas {
-    background-color: var(--background-secondary-alt);
-    
-}
-
-/**************************************/
-/*            Status bar              */
-/**************************************/
-.status-bar{
-  background-color: var(--background-secondary); 
-}
-.status-bar-item
-{
-  font-family: var(--font-family-preview);
-  font-size: var(--font-size-status-bar);
-}
-
-/**************************************/
-/*        note header bar             */
-/**************************************/
-
-.view-header {
-    background-color: var(--background-primary);   
-    border-top: 1px solid var(--text-faint) !important;
-    border-bottom: 2px solid var(--text-faint) !important;
-}
-
-.view-header-title-container:after {
-    top:unset;
-    background: linear-gradient(to bottom, transparent, var(--background-primary));
-}
-
-.workspace-leaf.mod-active .view-header {
-    background-color: var(--background-secondary);  
-    border-top: 1px solid var(--text-faint) !important;
-    border-bottom: 3px solid var(--text-faint) !important;
-}
-
-.workspace-leaf.mod-active .view-header-title-container:after {
-    background: linear-gradient(to bottom, transparent, var(--background-secondary));
-}
-
-.view-action {
-    color: var(--text-faint) !important;
-}
-
-.view-action:hover{
-    color: var(--text-a) !important;
-}
-
-
-/**************************************/
-/*            Setting                 */
-/**************************************/
-
-/* texts in settings: account and daily note */
-.u-pop {
-  color: var(--text-accent);
-}
-
-.mod-cta, .mod-cta a {
-    color: var(--interactive-before) !important;
-    font-weight: 600 !important;
-    font-style: normal;
-}
-
-.mod-cta:hover {
-    background-color: var(--text-faint) !important;
-    font-weight: 600 !important;
-}
-
-.app-container
-{
-  font-family: var(--font-family-preview);
-}
-
-.dropdown, input{
-  background-color: var(--background-secondary-alt) !important;
-}
-
-.dropdown:hover{
-  background-color: var(--background-primary-alt) !important; 
-}
-
-.document-search-container{
-  border-top: 1px solid var(--background-modifier-border);
-}
-/**************************************/
-/*            Side dock               */
-/**************************************/
-.side-dock-ribbon, .side-dock-ribbon-tab-inner {
-  background-color: var(--background-secondary) !important;
-}
-
-.side-dock-ribbon-tab.is-active {
-  color: var(--text-accent) !important;
-}
-
-/*
-.side-dock-ribbon{
-  border-right: 1px solid var(--background-modifier-border) !important;
-}
-
-.side-dock-ribbon .side-dock-ribbon{
-  border-right: 0px !important;
-}
-*/
-/* hover actions on side dock navigation */
-.side-dock-ribbon-tab:hover,
-.side-dock-ribbon-tab-inner:hover,
-.side-dock-ribbon-action:hover,
-.side-dock-ribbon-action.is-active:hover,
-.nav-action-button:hover,
-.side-dock-collapse-btn:hover {
-  color: var(--text-a);
-}
-
-/* to have sidebar hide and then reveal on hover */
-.app-container.is-left-sidedock-collapsed .side-dock.mod-left:not(:hover), .app-container.is-right-sidedock-collapsed .side-dock.mod-right:not(:hover) {
-  width: 1px !important;
-}
-
-
-/***************************************/
-/* Side panel - File Explorer heading  */
-/***************************************/
-
-/* side dock text, e.g. file names and backlink context */
-.side-dock-panels-container * {
-  font-size: var(--font-size-side-dock) !important;
-}
-
-/* side dock titles at top */
-.side-dock-title {
-  font-size: var(--font-size-side-dock-title) !important;
-  font-weight: 500 !important;
-  color: var(--text-normal) !important;
-}
-
-/* SEARCH panel background */
-.side-dock-panels-container {
-  background-color: var(--background-secondary-alt) !important;
-  color: var(--text-normal);
-}
-
-/* file type tag for attachments*/
-.nav-file-tag {
-    color: var(--text-a) !important;
-}
-
-/*tag pane*/
-.tag-pane-tag:hover{
-  background-color: var(--background-primary-alt) !important;
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
-}
-
-.tag-pane-tag-count{
-  background-color: transparent;
-}
-
-/* opened files */
-.is-active .nav-file-title {
-  color: var(--text-a) !important;
-  
-}
-
-.nav-file-title {
-    border-bottom-left-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    border-top-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
-}
-
-.nav-folder-title:hover, .nav-file-title:hover{
-    background-color: var(--background-primary-alt) !important; 
-}
-
-/* remove the square around the indicator*/
-.nav-folder-collapse-indicator {
-  background-color: transparent !important;
-}
-
-/***************************************/
-/* Side panel -  search and backlink   */
-/***************************************/
-
-/* search result in backlink or file search */
-.search-result-file-title {  
-  font-weight: 600;
-  color: var(--text-normal) !important;
+.workspace-leaf-content[data-type = "graph"] .view-content{
   background-color: var(--background-secondary);
 }
-
-.search-result-file-title:hover, .search-result-file-match:hover {  
-  background-color: var(--background-primary-alt);
-  }
-
-/* condense line spacing on file explorer title list. also avoids character-level word breaks */
-.nav-file-title-content,
-.search-result-file-title,
-.search-result-file-match {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  line-height: normal !important;
-  word-break: keep-all;
-}
-
-/* clean up side bar empty state (e.g. unlinked mentions) */
-.search-empty-state {
-  width: auto;
-  padding-left: 10px;
-  padding-right: 5px;
-  line-height: normal;
-}
-
-/***************************************/
-/*      resize-handle                  */
-/***************************************/
-
-.workspace-leaf-resize-handle{
-    background-color: var(--background-modifier-border);
-}
-
-.workspace-leaf-resize-handle:hover{
-    background-color: var(--background-modifier-border);
-}
-
-.workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle{
-    height: 1px;
-}
-
-.workspace-split.mod-vertical > * > .workspace-leaf-resize-handle{
-    width: 1px;
-}
-
-.workspace-leaf-content{
-  padding-right: 0px;
-}
-
-.side-dock-resize-handle{
-  width: 1px;
-  background-color: var(--background-secondary-alt);
-}
-/***************************************/
-/*      notice and popover             */
-/***************************************/
-
-.notice {
-  background-color: var(--background-primary-alt) !important;
-  color: var(--text-normal) !important;
-}
-
-.popover{
-  border: 1px solid var(--background-modifier-border)
-}
-
