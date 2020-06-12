@@ -62,6 +62,13 @@
   --pre-code:                   #0F1A21;
   --blockquote-border:          rgba(255, 255, 0, 0.4);
   --vim-cursor:                 #f9bc60;
+  --border-color:               #488473;
+}
+
+
+/* font for everything outside of editor/preview panes */
+.app-container {
+  font-family: var(--font-family-preview);
 }
 
 /***************************************/
@@ -73,13 +80,13 @@
 .workspace-split.mod-left-split > .workspace-leaf-resize-handle, 
 .workspace-split.mod-right-split > .workspace-leaf-resize-handle{
   width: 1px !important;
-  background-color: var(--background-modifier-border);
+  background-color: var(--border-color);
 }
 
 /*horizontal resize-handle*/
 .workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle{
   height: 1px !important;
-  background-color: var(--background-modifier-border);
+  background-color: var(--border-color);
 }
 
 /*workspace ribbon when collapsed*/
@@ -99,13 +106,21 @@
 .status-bar{
   font-size: var(--font-size-status-bar);
   background-color: var(--background-secondary-alt);
-  border-top: 1px solid var(--background-modifier-border);
+  border-top: 0px;
 }
 
 .document-search-container{
   border-top: 0px;
-  border-right: 1px solid var(--background-modifier-border);
+  border-right: 0px;
   z-index: inherit;
+}
+
+.workspace-ribbon.mod-left.is-collapsed{
+  border-right: 1px solid var(--border-color);
+}
+
+.workspace-ribbon.mod-right.is-collapsed{
+  border-left: 1px solid var(--border-color);
 }
 
 /*************************************/
@@ -471,9 +486,10 @@ thead {
 /***************************************/
 
 .popover{
-  border: 1px solid var(--background-modifier-border);
+  border: 1px solid var(--border-color);
   background-color: var(--background-secondary);
 }
+
 
 /***************************************/
 /*            Side panel               */
@@ -579,8 +595,8 @@ color: var(--text-accent-hover) !important;
 
 .theme-dark .view-header {
   background-color: var(--background-primary) !important;   
-  border-top: 1px solid var(--background-modifier-border) !important;
-  border-bottom: 1px solid var(--background-modifier-border) !important;
+  border-top: 1px solid var(--border-color) !important;
+  border-bottom: 1px solid var(--border-color) !important;
 }
 
 .theme-dark .view-header-title-container:after {
@@ -589,15 +605,24 @@ color: var(--text-accent-hover) !important;
 
 .theme-dark .workspace-leaf.mod-active .view-header {
   background-color: var(--background-secondary-alt) !important;  
-  border-top: 1px solid var(--background-modifier-border) !important;
-  border-bottom: 3px solid var(--background-modifier-border) !important;
+  border-top: 0px !important;
+  border-bottom: 3px solid var(--text-faint) !important;
 }
 
-.theme-dark .workspace-leaf.mod-active .view-header-title-container:after {
+.workspace-leaf.mod-active .view-header-title-container:after {
   background: linear-gradient(to bottom, transparent, var(--background-secondary-alt)) !important;
 }
 
+.workspace-leaf.mod-active .view-header-title,
+.workspace-leaf.mod-active .view-header-icon,
+.workspace-leaf.mod-active .view-action
+{
+  color: var(--background-modifier-border);
+}
 
+.view-header-title, .view-header-icon, .view-action{
+  color: var(--text-faint);
+}
 /**************************************/
 /* andy mode activated in light mode  */
 /**************************************/
@@ -642,8 +667,8 @@ color: var(--text-accent-hover) !important;
 /* this is where the magic happens */
 .theme-light .view-header {
   writing-mode: vertical-lr;
-  border-right: 1px solid var(--background-modifier-border);
-  border-left: 0px;
+  border-right: 1px solid var(--border-color);
+  border-left: 0px !important;
   border-top: none;
   border-bottom: none;
   height: auto;
@@ -674,13 +699,11 @@ color: var(--text-accent-hover) !important;
 /* active titles have different border colours */
 .theme-light .workspace-leaf.mod-active .view-header {
   background-color: var(--background-secondary-alt) !important; 
-  border-right: 2px solid var(--background-modifier-border) !important;
+  border-right: 3px solid var(--text-faint) !important;
+  border-left: 0px;
   border-bottom: none;
 }
 
-.theme-light .workspace-leaf.mod-active .view-header-title-container:after {
-  background: linear-gradient(to bottom, transparent, var(--background-secondary-alt)) !important;
-}
 
 /* swap the padding/margin around for the header and actions icons */
 .theme-light .view-header-icon, .theme-light .view-actions {
