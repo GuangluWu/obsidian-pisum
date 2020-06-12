@@ -65,7 +65,7 @@
 }
 
 /***************************************/
-/*      resize-handle                  */
+/*  resize-handle and borders          */
 /***************************************/
 
 /*vertical resize-handle*/
@@ -93,49 +93,6 @@
 .workspace-split.mod-vertical > .workspace-leaf,
 .workspace-tabs{
   padding-right: 0px;
-}
-
-/**************************************/
-/*        note header bar             */
-/**************************************/
-
-/* header */
-.view-header {
-  background-color: var(--background-primary) !important;   
-  border-top: 1px solid var(--background-modifier-border) !important;
-  border-bottom: 1px solid var(--background-modifier-border) !important;
-}
-
-.view-header-title-container:after {
-  background: linear-gradient(to bottom, transparent, var(--background-primary)) !important;
-}
-
-.workspace-leaf.mod-active .view-header {
-  background-color: var(--background-secondary-alt) !important;  
-  border-top: 1px solid var(--background-modifier-border) !important;
-  border-bottom: 3px solid var(--background-modifier-border) !important;
-}
-
-.workspace-leaf.mod-active .view-header-title-container:after {
-  background: linear-gradient(to bottom, transparent, var(--background-secondary-alt)) !important;
-}
-
-/**************************************/
-/*      background and borders        */
-/**************************************/
-
-/*backlink pane*/
-.workspace-leaf-content[data-type="backlink"] .view-content{
-  background-color: var(--background-secondary);
-}
-
-.workspace-leaf-content[data-type="tag"] .tag-pane-tag-count,
-.workspace-leaf-content[data-type="tag"] .tag-pane-tag-text {  
-  font-size: var(--font-size-side-dock);
-}
-
-.workspace-leaf-content[data-type="backlink"] .search-result-file-matches {
-  font-size: var(--font-size-side-dock);
 }
 
 /*status-bar*/
@@ -238,6 +195,7 @@ a:not(.internal-link) {
 .markdown-preview-view, .mod-single-child .markdown-preview-view {
   font-family: var(--font-family-editor);
   font-size: var(--font-size-normal);
+  padding-top: 5px;
   padding-left: 2% !important;
   padding-right: 1% !important;
 }
@@ -543,6 +501,19 @@ thead {
   border-top-right-radius: 0 !important;
 }
 
+/*backlink pane*/
+.workspace-leaf-content[data-type="backlink"] .view-content{
+  background-color: var(--background-secondary);
+}
+
+.workspace-leaf-content[data-type="tag"] .tag-pane-tag-count,
+.workspace-leaf-content[data-type="tag"] .tag-pane-tag-text {  
+  font-size: var(--font-size-side-dock);
+}
+
+.workspace-leaf-content[data-type="backlink"] .search-result-file-matches {
+  font-size: var(--font-size-side-dock);
+}
 /***************************************/
 /* internal embedded link in preview   */
 /***************************************/
@@ -598,3 +569,149 @@ color: var(--text-accent-hover) !important;
 .modal.mod-settings button:not(.mod-cta):hover {
   background-color: var(--interactive-accent-hover);
 }
+
+/**************************************/
+/*  note header bar for non-andy mode */
+/*        activated in dark mode      */
+/**************************************/
+
+/* header */
+
+.theme-dark .view-header {
+  background-color: var(--background-primary) !important;   
+  border-top: 1px solid var(--background-modifier-border) !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+}
+
+.theme-dark .view-header-title-container:after {
+  background: linear-gradient(to bottom, transparent, var(--background-primary)) !important;
+}
+
+.theme-dark .workspace-leaf.mod-active .view-header {
+  background-color: var(--background-secondary-alt) !important;  
+  border-top: 1px solid var(--background-modifier-border) !important;
+  border-bottom: 3px solid var(--background-modifier-border) !important;
+}
+
+.theme-dark .workspace-leaf.mod-active .view-header-title-container:after {
+  background: linear-gradient(to bottom, transparent, var(--background-secondary-alt)) !important;
+}
+
+
+/**************************************/
+/* andy mode activated in light mode  */
+/**************************************/
+
+/* Andy Matuschak mode! V2! for 0.7.0! (so... 2.7?) */
+
+/* everything under .mod-root now. Don't want Andy messing with sidebars */
+/* also, Andy only makes sense for vertical splits, at the root level, right? */
+.theme-light .mod-root.workspace-split.mod-vertical { 
+  overflow-x:auto; 
+  --sticky-left: 25px; /* <- 36px is the header height in the default theme */
+}
+.theme-light .mod-root.workspace-split.mod-vertical > div { 
+  min-width: calc(700px + var(--sticky-left)); /* <-- 700px is the default theme's "readable" max-width */
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.2);
+  position:sticky;
+  left:0;
+}
+
+
+/* shift sticky position, so titles will stack up to the left */
+/* This will currently stack to a maximum of 10 before resetting */
+.theme-light .mod-root.workspace-split.mod-vertical > div:nth-child(10n-8) { left: calc(var(--sticky-left) * 0); }
+.theme-light .mod-root.workspace-split.mod-vertical > div:nth-child(10n-7) { left: calc(var(--sticky-left) * 1); }
+.theme-light .mod-root.workspace-split.mod-vertical > div:nth-child(10n-6) { left: calc(var(--sticky-left) * 2); }
+.theme-light .mod-root.workspace-split.mod-vertical > div:nth-child(10n-5) { left: calc(var(--sticky-left) * 3); }
+.theme-light .mod-root.workspace-split.mod-vertical > div:nth-child(10n-4) { left: calc(var(--sticky-left) * 4); }
+.theme-light .mod-root.workspace-split.mod-vertical > div:nth-child(10n-3) { left: calc(var(--sticky-left) * 5); }
+.theme-light .mod-root.workspace-split.mod-vertical > div:nth-child(10n-2) { left: calc(var(--sticky-left) * 6); }
+.theme-light .mod-root.workspace-split.mod-vertical > div:nth-child(10n-1) { left: calc(var(--sticky-left) * 7); }
+.theme-light .mod-root.workspace-split.mod-vertical > div:nth-child(10n+0) { left: calc(var(--sticky-left) * 8); }
+.theme-light .mod-root.workspace-split.mod-vertical > div:nth-child(10n+1) { left: calc(var(--sticky-left) * 9); }
+
+/* now it's time for the fancy vertical titles */
+
+/* first we'll add a bit of gap for the title to sit inside of */
+.theme-light .workspace-leaf-content {
+  padding-left: var(--sticky-left);
+  position: relative;
+}
+
+/* this is where the magic happens */
+.theme-light .view-header {
+  writing-mode: vertical-lr;
+  border-right: 1px solid var(--background-modifier-border);
+  border-left: 0px;
+  border-top: none;
+  border-bottom: none;
+  height: auto;
+  width: 36px;
+  position: absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  background-color: var(--background-primary) !important;
+}
+
+/* fix the long-title-obscuring shadows */
+.theme-light .view-header-title-container:after {
+  width: 100%;
+  height: 30px;
+  top:unset;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, var(--background-primary))!important;
+}
+
+/* unset the title container height and swap padding */
+.theme-light .view-header-title-container {
+  height: unset;
+  padding-left: unset;
+  padding-top: 5px;
+}
+
+/* active titles have different border colours */
+.theme-light .workspace-leaf.mod-active .view-header {
+  background-color: var(--background-secondary-alt) !important; 
+  border-right: 2px solid var(--background-modifier-border) !important;
+  border-bottom: none;
+}
+
+.theme-light .workspace-leaf.mod-active .view-header-title-container:after {
+  background: linear-gradient(to bottom, transparent, var(--background-secondary-alt)) !important;
+}
+
+/* swap the padding/margin around for the header and actions icons */
+.theme-light .view-header-icon, .theme-light .view-actions {
+  padding: 10px 5px;
+}
+.theme-light .view-action {
+  margin: 8px 0;
+}
+
+/* get rid of the gap left by the now-missing horizontal title */
+.theme-light .view-content {
+  height: 100%;
+}
+
+/* make the fake drop target overlay have a background so you can see it. */
+/* TODO: figure out how the fake target overlay works so we can put the title back, too */
+.theme-light .workspace-fake-target-overlay {
+  background-color: var(--background-primary);
+}
+
+/*preview padding too small*/
+.theme-light .markdown-preview-view, .theme-light .mod-single-child .markdown-preview-view {
+  font-family: var(--font-family-editor);
+  font-size: var(--font-size-normal);
+  padding-top: 5px;
+  padding-left: 4% !important;
+  padding-right: 2% !important;
+}
+
+/*disable the scrollbar*/
+.theme-light .horizontal-main-container ::-webkit-scrollbar{
+  display: none !important;
+}
+
