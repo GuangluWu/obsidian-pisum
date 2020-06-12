@@ -9,6 +9,8 @@ This is an [obsidian](https://obsidian.md/) theme with clean line-drawing appear
 
 ![focus](focus.png)
 
+![fullpower](fullpower.png)
+
 ---
 ### Usage
 
