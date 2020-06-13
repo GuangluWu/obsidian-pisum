@@ -2,7 +2,7 @@
 
 This is an [obsidian](https://obsidian.md/) theme with clean line-drawing appearance. Only dark mode is available, but I set the light mode to be an [Andy_Matuschak mode](https://notes.andymatuschak.org) which is a credit to [death_au](https://github.com/deathau) 's brilliant solution. 
 
-Be careful! Almost all scrollbars are removed for a non-distracted interface.
+~~Be careful! Almost all scrollbars are removed for a non-distracted interface.~~
 
 ---
 ### Screenshot

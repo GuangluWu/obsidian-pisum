@@ -47,9 +47,9 @@
   --interactive-accent: #488473;
   --interactive-accent-rgb: 123, 108, 217;
   --interactive-accent-hover: rgba(255, 255, 0, 0.4);
-  --scrollbar-active-thumb-bg: rgba(0, 0, 0, 0.2);
+  --scrollbar-active-thumb-bg: rgba(0, 0, 0, 0.5);
   --scrollbar-bg: rgba(0, 0, 0, 0.05);
-  --scrollbar-thumb-bg: rgba(0, 0, 0, 0.1);
+  --scrollbar-thumb-bg: rgba(0, 0, 0, 0.3);
 
   --text-title-h1:              #d65d0e;
   --text-title-h2:              #ADA142;
@@ -163,22 +163,10 @@ a:not(.internal-link) {
   font-style: italic;
 }
 
-/***************************************/
-/*             Hide Scrollbar          */
-/***************************************/
-
-/* Hide scrollbar in preview, search, file, tag, back links */
-.markdown-preview-view::-webkit-scrollbar, 
-.workspace-leaf-content::-webkit-scrollbar, 
-.workspace-leaf-content[data-type = "backlink"] .view-content::-webkit-scrollbar, 
-.search-result-container::-webkit-scrollbar,
-.nav-files-container::-webkit-scrollbar,
-.tag-pane-tags::-webkit-scrollbar {
-    display: none;
-}
-/* Hide scrollbar for editor*/
-.CodeMirror-vscrollbar {
-  display: none !important;
+/*footnote*/
+.cm-s-obsidian pre.HyperMD-footnote span.cm-hmd-footnote,
+.cm-s-obsidian span.cm-footref {
+  color: var(--text-accent) !important; 
 }
 
 /***************************************/
@@ -733,8 +721,32 @@ color: var(--text-accent-hover) !important;
   padding-right: 2% !important;
 }
 
-/*disable the scrollbar*/
-.theme-light .horizontal-main-container ::-webkit-scrollbar{
+/***************************************/
+/*  Hide Scrollbar (recommend for mac)  */
+/***************************************/
+
+/* Hide scrollbar in preview, search, file, tag, back links *//*
+.markdown-preview-view::-webkit-scrollbar, 
+.workspace-leaf-content::-webkit-scrollbar, 
+.workspace-leaf-content[data-type = "backlink"] .view-content::-webkit-scrollbar {
+  display: none;
+}*/
+/* Hide scrollbar for editor*//*
+.CodeMirror-vscrollbar {
+  display: none !important;
+}*/
+
+/* disable the scrollbar for search pane
+.search-result-container::-webkit-scrollbar,
+.nav-files-container::-webkit-scrollbar,
+.tag-pane-tags::-webkit-scrollbar {
+  display: none; 
+}
+*/
+
+/*disable the scrollbar for main-container */
+/*
+.theme-dark .horizontal-main-container ::-webkit-scrollbar{
   display: none !important;
 }
-
+*/
