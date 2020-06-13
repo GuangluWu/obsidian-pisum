@@ -13,58 +13,63 @@
     --font-size-h6:                  18px;
     --font-family-editor:            Avenir, Avenir Next, sans-serif;
     --font-family-preview:           Avenir, Avenir Next, sans-serif;
+    --dark0:                         
 } 
 
 .theme-light,
 .theme-dark {
-  --background-primary: #364549;
-  --background-primary-alt: #2C383A;
-  --background-secondary: #415358;
-  --background-secondary-alt: #2C383A;
+  --background-primary: #003331;
+  --background-primary-alt: #001e1d;
+  --background-secondary: #004643;
+  --background-secondary-alt: #001e1d;
   --background-accent: #fff;
-  --background-modifier-border: #f2e5bc;
-  --background-modifier-form-field: rgba(0, 0, 0, 0.2);
-  --background-modifier-form-field-highlighted: rgba(0, 0, 0, 0.5);
-  --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
-  --background-modifier-success: #197300; /*no sure*/
-  --background-modifier-error: #3d0000; /*no sure*/
-  --background-modifier-error-rgb: 61, 0, 0;
-  --background-modifier-error-hover: #470000;
+  --background-modifier-border: #abd1c6;
+  --background-modifier-form-field: rgba(0, 0, 0, 0.9);
+  --background-modifier-form-field-highlighted: #004643;
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.1);
+  --background-modifier-success: #A4E7C3;
+  --background-modifier-error: #e68787;
+  --background-modifier-error-rgb: 230, 135, 135;
+  --background-modifier-error-hover: #FF9494;
   --background-modifier-cover: rgba(0, 0, 0, 0.6);
-  --text-accent: #fe8019;
-  --text-accent-hover: #83a598;
-  --text-normal: #fbf1c7;
-  --text-muted: #d5c4a1;
-  --text-faint: #bdae93;
-  --text-highlight-bg: #b57614;
+  --text-accent: #f9bc60;
+  --text-accent-hover: #e16162;
+  --text-normal: #e8e4e6;
+  --text-muted: #abd1c6;
+  --text-faint: #488473;
+  --text-highlight-bg: rgba(255, 255, 0, 0.4);
   --text-error: #800000;
   --text-error-hover: #990000;
-  --text-selection: rgba(60, 56, 54, 0.99); /* Chromium precess this color with alpha channel */
-  --text-on-accent: #fbf1c7;
-  --interactive-normal: #b57614;
-  --interactive-hover: #fe8019;
-  --interactive-accent: #b57614;
+  --text-selection: #001a19;
+  --text-on-accent: #dcddde;
+  --interactive-normal: #003331;
+  --interactive-hover: #004643;
+  --interactive-accent: #488473;
   --interactive-accent-rgb: 123, 108, 217;
-  --interactive-accent-hover: #fe8019;
+  --interactive-accent-hover: rgba(255, 255, 0, 0.4);
   --scrollbar-active-thumb-bg: rgba(0, 0, 0, 0.5);
   --scrollbar-bg: rgba(0, 0, 0, 0.05);
   --scrollbar-thumb-bg: rgba(0, 0, 0, 0.3);
 
   --text-title-h1:              #d65d0e;
-  --text-title-h2:              #d79921;
+  --text-title-h2:              #ADA142;
   --text-title-h3:              #98971a;
   --text-title-h4:              #689d6a;
   --text-title-h5:              #458588;
   --text-title-h6:              #b16286;
   --inline-code:                #b48ead;
   --code-block:                 #b48ead;
-  --pre-code:                   #3c3836;
-  --blockquote-border:          #b57614;
-  --vim-cursor:                 #d65d0e;
-  --border-color:               #504945; /*also like transparent*/
+  --pre-code:                   #0F1A21;
+  --blockquote-border:          rgba(255, 255, 0, 0.4);
+  --vim-cursor:                 #f9bc60;
+  --border-color:               #488473;
 }
 
 
+/* font for everything outside of editor/preview panes */
+.app-container {
+  font-family: var(--font-family-preview);
+}
 
 /***************************************/
 /*  resize-handle and borders          */
@@ -181,16 +186,6 @@ a:not(.internal-link) {
 /* basic format in EDITOR and PREVIEW */
 /**************************************/
 
-/* font for everything outside of editor/preview panes */
-.app-container {
-  font-family: var(--font-family-preview);
-}
-
-/* set the text selection color for preview mode */
-::selection {
-  background-color: var(--text-selection);
-} 
-
 /* normal text outside of headings and code of editor */
 .cm-s-obsidian, .mod-single-child .cm-s-obsidian {
   font-family: var(--font-family-editor);
@@ -257,7 +252,7 @@ img:hover {
   font-family: var(--font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h1);
-  color: var(--text-title-h1);
+  color: var(--text-title-h2);
 }
 
 .cm-header-2, .markdown-preview-view h2
@@ -273,7 +268,7 @@ img:hover {
   font-family: var(--font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h3);
-  color: var(--text-title-h3);
+  color: var(--text-title-h2);
 }
 
 .cm-header-4, .markdown-preview-view h4
@@ -281,7 +276,7 @@ img:hover {
   font-family: var(--font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h4);
-  color: var(--text-title-h4);
+  color: var(--text-title-h2);
 }
 
 .cm-header-5, .markdown-preview-view h5
@@ -289,7 +284,7 @@ img:hover {
   font-family: var(--font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h5);
-  color: var(--text-title-h5);
+  color: var(--text-title-h2);
 }
 
 .cm-header-6, .markdown-preview-view h6
@@ -297,7 +292,7 @@ img:hover {
   font-family: var(--font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h6);
-  color: var(--text-title-h6);
+  color: var(--text-title-h2);
 }
 
 /***************************************/
@@ -475,7 +470,7 @@ thead {
 }
 
 /***************************************/
-/*              popover                */
+/*      notice and popover             */
 /***************************************/
 
 .popover{
@@ -533,19 +528,15 @@ thead {
 .markdown-preview-view .markdown-embed-content>:last-child { margin-bottom: 0; }
 /*remove the following two line, you will get border and scroll*/
 .markdown-preview-view .markdown-embed { border:none; padding:0; margin:0; }
-.markdown-preview-view .markdown-embed-content 
-{ 
-  max-height: unset;
-  background-color: var(--background-secondary);
-}
+.markdown-preview-view .markdown-embed-content { max-height: unset;}
 
 /* the link on the top right corner*/
 .markdown-embed-link {
-color: var(--text-faint) !important;
+color: var(--text-accent) !important;
 }
 
 .markdown-embed-link:hover {
-color: var(--text-accent) !important;
+color: var(--text-accent-hover) !important;
 }
 
 /***************************************/
@@ -603,7 +594,7 @@ color: var(--text-accent) !important;
 .theme-dark .workspace-leaf.mod-active .view-header {
   background-color: var(--background-secondary-alt) !important;  
   border-top: 0px !important;
-  border-bottom: 3px solid var(--interactive-accent) !important;
+  border-bottom: 3px solid var(--text-faint) !important;
 }
 
 .workspace-leaf.mod-active .view-header-title-container:after {
@@ -611,7 +602,8 @@ color: var(--text-accent) !important;
 }
 
 .workspace-leaf.mod-active .view-header-title,
-.workspace-leaf.mod-active .view-header-icon
+.workspace-leaf.mod-active .view-header-icon,
+.workspace-leaf.mod-active .view-action
 {
   color: var(--background-modifier-border);
 }
@@ -695,10 +687,11 @@ color: var(--text-accent) !important;
 /* active titles have different border colours */
 .theme-light .workspace-leaf.mod-active .view-header {
   background-color: var(--background-secondary-alt) !important; 
-  border-right: 3px solid var(--interactive-accent) !important;
+  border-right: 3px solid var(--text-faint) !important;
   border-left: 0px;
   border-bottom: none;
 }
+
 
 /* swap the padding/margin around for the header and actions icons */
 .theme-light .view-header-icon, .theme-light .view-actions {
@@ -729,28 +722,6 @@ color: var(--text-accent) !important;
 }
 
 /***************************************/
-/*    at a rule line before ul list     */
-/***************************************/
-
-ul ul { position: relative; }
-ul ul::before {
-  content:'';
-  border-left: 1px solid var(--border-color);
-  position: absolute;
-}
-ul ul::before { left: -1em; top: 0; bottom: 0; }
-/*
-.cm-hmd-list-indent .cm-tab, ul ul { position: relative; }
-.cm-hmd-list-indent .cm-tab::before, ul ul::before {
-  content:'';
-  border-left: 1px solid var(--border-color);
-  position: absolute;
-}
-.cm-hmd-list-indent .cm-tab::before { left: 0.5em; top: -5px; bottom: -4px; }
-ul ul::before { left: -1em; top: 0; bottom: 0; }
-*/
-
-/***************************************/
 /*  Hide Scrollbar (recommend for mac)  */
 /***************************************/
 
@@ -775,9 +746,7 @@ ul ul::before { left: -1em; top: 0; bottom: 0; }
 
 /*disable the scrollbar for main-container */
 /*
-.theme-light .horizontal-main-container ::-webkit-scrollbar{
+.theme-dark .horizontal-main-container ::-webkit-scrollbar{
   display: none !important;
 }
 */
-
-

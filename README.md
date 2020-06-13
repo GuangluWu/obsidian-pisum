@@ -1,19 +1,17 @@
 # Obsidian-pisum
 
-This is an [obsidian](https://obsidian.md/) theme with clean line-drawing appearance. Only dark mode is available, but I set the light mode to be an [Andy_Matuschak mode](https://notes.andymatuschak.org) which is a credit to [death_au](https://github.com/deathau) 's brilliant solution. 
-
-~~Be careful! Almost all scrollbars are removed for a non-distracted interface.~~
+This is an [obsidian](https://obsidian.md/) theme that can be regarded as a remix of [obsidian_gruvbox](https://github.com/insanum/obsidian_gruvbox) and [Qiita](https://github.com/increments/vscode-qiita). Only dark mode is available, but I set the light mode to be an [Andy_Matuschak mode](https://notes.andymatuschak.org) which must be a credit to [death_au](https://github.com/deathau) 's brilliant solution. 
 
 ---
 ### Screenshot
 
-![Clean](clean.png)
+<img src="clean.png" alt="Clean" style="zoom:50%;" />
 
-![focus](focus.png)
+<img src="focus.png" alt="focus" style="zoom:50%;" />
 
-![fullpower](fullpower.png)
+<img src="fullpower.png" alt="fullpower" style="zoom:50%;" />
 
-![andymode](andymode.png)
+<img src="andymode.png" alt="andymode" style="zoom:50%;" />
 
 ---
 ### Usage
