@@ -64,6 +64,34 @@
   --border-color:               #504945; /*also like transparent*/
 }
 
+
+/*-----------------------------------------------------------*/
+/* Search the following lines to jump to specific section */
+/*-----------------------------------------------------------*/
+/*  resize-handle and borders          */
+/*                tags               */
+/*             link              */
+/*                Cursor               */
+/* basic format in EDITOR and PREVIEW */
+/* Headings - EDITOR and PREVIEW */
+/*         Code block in  Preview      */
+/*       Code block in Editor          */
+/*              Brackets               */
+/*             Blockquote              */
+/*             table                   */
+/*               Checkbox              */
+/*           html in editor            */
+/*              popover                */
+/*            Side panel               */
+/* internal embedded link in preview   */
+/*             graph view              */
+/*            settings                 */
+/*            Hide side bar            */
+/*  note header bar for non-andy mode */
+/* andy mode activated in light mode  */
+/*    at a rule line before ul list    *
+/*  Hide Scrollbar (recommend for mac)  */
+
 /***************************************/
 /*  resize-handle and borders          */
 /***************************************/
@@ -193,6 +221,7 @@ a:not(.internal-link) {
 .cm-s-obsidian, .mod-single-child .cm-s-obsidian {
   font-family: var(--font-family-editor);
   font-size: var(--font-size-normal);
+  padding-top: 5px;
   padding-left: 1% !important;
   padding-right: 1% !important;
 }
@@ -201,7 +230,7 @@ a:not(.internal-link) {
 .markdown-preview-view, .mod-single-child .markdown-preview-view {
   font-family: var(--font-family-editor);
   font-size: var(--font-size-normal);
-  padding-top: 5px;
+  padding-top: 0px;
   padding-left: 2% !important;
   padding-right: 1% !important;
 }
@@ -585,6 +614,18 @@ color: var(--text-accent) !important;
   background-color: var(--interactive-accent-hover);
 }
 
+/***************************************/
+/*            Hide side bar            */
+/***************************************/
+
+.workspace-ribbon:not(:hover) .workspace-ribbon-collapse-btn, 
+.workspace-ribbon:not(:hover) .side-dock-actions, 
+.workspace-ribbon:not(:hover) .side-dock-settings {display:none;}
+.workspace-ribbon:not(:hover) {width: 0px;}
+
+.workspace-split.mod-left-split {margin-left: 0px;}
+.workspace-split.mod-right-split {margin-right: 0px;}
+
 /**************************************/
 /*  note header bar for non-andy mode */
 /*        activated in dark mode      */
@@ -621,6 +662,7 @@ color: var(--text-accent) !important;
 .view-header-title, .view-header-icon, .view-action{
   color: var(--text-faint);
 }
+
 /**************************************/
 /* andy mode activated in light mode  */
 /**************************************/
@@ -785,5 +827,3 @@ ul ul::before { left: -1em; top: 0; bottom: 0; }
   display: none !important;
 }
 */
-
-
