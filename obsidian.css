@@ -64,10 +64,10 @@
   --border-color:               #504945; /*also like transparent*/
 }
 
-
-/*-----------------------------------------------------------*/
-/* Search the following lines to jump to specific section */
-/*-----------------------------------------------------------*/
+/*-------------------------------------*/
+/*      Search the following lines     */
+/*     to jump to specific section     */
+/*-------------------------------------*/
 /*  resize-handle and borders          */
 /*                tags               */
 /*             link              */
@@ -87,10 +87,12 @@
 /*             graph view              */
 /*            settings                 */
 /*            Hide side bar            */
+/*           width of content          */
 /*  note header bar for non-andy mode */
 /* andy mode activated in light mode  */
 /*    at a rule line before ul list    *
 /*  Hide Scrollbar (recommend for mac)  */
+/*-------------------------------------*/
 
 /***************************************/
 /*  resize-handle and borders          */
@@ -620,11 +622,31 @@ color: var(--text-accent) !important;
 
 .workspace-ribbon:not(:hover) .workspace-ribbon-collapse-btn, 
 .workspace-ribbon:not(:hover) .side-dock-actions, 
-.workspace-ribbon:not(:hover) .side-dock-settings {display:none;}
-.workspace-ribbon:not(:hover) {width: 0px;}
+.workspace-ribbon:not(:hover) .side-dock-settings {
+  display:none; 
+  transition: all 300ms ease-in-out;}
+.workspace-ribbon:not(:hover) {
+  width: 0px;
+  transition: all 300ms ease-in-out;}
 
 .workspace-split.mod-left-split {margin-left: 0px;}
 .workspace-split.mod-right-split {margin-right: 0px;}
+
+/***************************************/
+/*           width of content          */
+/***************************************/
+
+.markdown-source-view.is-readable-line-width .CodeMirror {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.markdown-preview-view.is-readable-line-width .markdown-preview-section {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /**************************************/
 /*  note header bar for non-andy mode */
