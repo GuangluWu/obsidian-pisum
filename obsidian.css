@@ -636,14 +636,9 @@ color: var(--text-accent) !important;
 /*           width of content          */
 /***************************************/
 
-.markdown-source-view.is-readable-line-width .CodeMirror {
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
+.markdown-source-view.is-readable-line-width .CodeMirror, 
 .markdown-preview-view.is-readable-line-width .markdown-preview-section {
-  max-width: 700px;
+  max-width: 42vmax; /* 1vmax = 1% of the larger dimension*/
   margin-left: auto;
   margin-right: auto;
 }
