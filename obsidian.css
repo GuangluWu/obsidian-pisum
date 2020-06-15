@@ -637,13 +637,13 @@ color: var(--text-accent) !important;
 /***************************************/
 
 .markdown-source-view.is-readable-line-width .CodeMirror {
-  max-width: 750px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .markdown-preview-view.is-readable-line-width .markdown-preview-section {
-  max-width: 750px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
