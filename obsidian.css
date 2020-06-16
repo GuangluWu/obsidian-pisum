@@ -279,6 +279,11 @@ img:hover {
   transform: none;
 }
 
+/* Changing size/color of the header hashtags ## */
+.cm-formatting-header {
+  font-size: 0.6em !important;
+}
+
 /*********************************/
 /* Headings - EDITOR and PREVIEW */
 /*********************************/
