@@ -492,8 +492,8 @@ code{
   border: 0px !important;
 }
 
-/*vim active line*/
-.CodeMirror-activeline .CodeMirror-linebackground{
+/*an active line highlight in vim normal mode */
+.cm-fat-cursor .CodeMirror-activeline .CodeMirror-linebackground{
   background-color: var(--text-selection) !important;
 }
 
