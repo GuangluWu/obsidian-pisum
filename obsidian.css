@@ -36,10 +36,10 @@
   --text-normal: #fbf1c7;
   --text-muted: #d5c4a1;
   --text-faint: #bdae93;
-  --text-highlight-bg: #b57614;
+  --text-highlight-bg: rgba(181, 118, 20, 0.5);
   --text-error: #800000;
   --text-error-hover: #990000;
-  --text-selection: rgba(60, 56, 54, 0.99); /* Chromium precess this color with alpha channel */
+  --text-selection: rgba(89, 75, 95, 0.99); /* Chromium precess this color with alpha channel */
   --text-on-accent: #fbf1c7;
   --interactive-normal: #b57614;
   --interactive-hover: #fe8019;
@@ -58,11 +58,13 @@
   --text-title-h6:              #b16286;
   --inline-code:                #b48ead;
   --code-block:                 #b48ead;
-  --pre-code:                   #3c3836;
+  --pre-code-bg:                rgba(0, 0, 0, 0.2);
   --blockquote-border:          #b57614;
   --vim-cursor:                 #d65d0e;
   --border-color:               #504945; /*also like transparent*/
 }
+/* better use rgba color for all color var ended with `bg`*/
+
 
 /*-------------------------------------*/
 /*      Search the following lines     */
@@ -365,7 +367,7 @@ pre code {
 
 /* in-line block for preview */
 code{
-  background-color: var(--pre-code) !important;
+  background-color: var(--pre-code-bg) !important;
   color: var(--inline-code) !important;
   bottom: 0px !important;
 }
@@ -378,7 +380,6 @@ code{
 {
     text-shadow: none !important;
     color: var(--text-faint) !important;
-    background-color: var(--pre-code);
 }
 
 /***************************************/
@@ -386,8 +387,11 @@ code{
 /***************************************/
 
 /* in-line block for editor */
-.cm-inline-code {
-  background-color: var(--pre-code) !important;
+.cm-s-obsidian span.cm-inline-code,
+.cm-s-obsidian span.cm-inline-code.cm-hmd-indented-code,
+.cm-s-obsidian span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code)
+{
+  background-color: var(--pre-code-bg);
   color: var(--inline-code) !important;
   bottom: 0px !important;
 }
@@ -398,9 +402,19 @@ code{
   font-size: var(--font-size-code) !important;
   padding: 1px !important;
   display: block;
-  background-color: var(--pre-code);     
+  background-color: var(--pre-code-bg);    
   color: var(--code-block) !important;
   font-weight: 500;
+}
+
+/*remove the border of codeblock in editor when the background color is not defined
+.HyperMD-codeblock-bg{
+  border: 0px !important;
+}*/
+
+/*vim active line*/
+.CodeMirror-activeline .CodeMirror-linebackground{
+  background-color: var(--text-selection) !important;
 }
 
 /***************************************/
@@ -417,14 +431,14 @@ code{
 
 /* for editor */
 .cm-quote {
-  background-color: var(--pre-code);
+  background-color: var(--pre-code-bg);
   color: var(--text-normal) !important;
   font-style: italic;
 }
 
 /* for preview */
 .markdown-preview-view blockquote {
-  background-color: var(--pre-code);
+  background-color: var(--pre-code-bg);
   border: 0px solid;
   border-color: var(--blockquote-border) !important;
   border-left-width: 4px !important;
@@ -567,8 +581,10 @@ thead {
 
 /* Naked Embeds */
 .markdown-embed-title { display: none; }
-.markdown-preview-view .markdown-embed-content>:first-child { margin-top: 0; }
-.markdown-preview-view .markdown-embed-content>:last-child { margin-bottom: 0; }
+.markdown-preview-view .markdown-embed-content>:first-child { margin-top: 0;}
+.markdown-preview-view .markdown-embed-content>:last-child { margin-bottom: 0;}
+/* remove the first heading
+.markdown-preview-view .markdown-embed-content>:first-child { display:none;}*/
 /*remove the following two line, you will get border and scroll*/
 .markdown-preview-view .markdown-embed { border:none; padding:0; margin:0; }
 .markdown-preview-view .markdown-embed-content 
