@@ -362,12 +362,12 @@ pre code {
 /* font-size of in-line block for preview */
 .markdown-preview-view code
 {
-  font-size: var(--font-size-code);
+  font-size: 90%;
+  line-height: 1.7;
 }
 
 /* in-line block for preview */
 code{
-  background-color: var(--pre-code-bg) !important;
   color: var(--inline-code) !important;
   bottom: 0px !important;
 }
@@ -380,6 +380,87 @@ code{
 {
     text-shadow: none !important;
     color: var(--text-faint) !important;
+}
+
+.theme-light code[class*="language-"],
+.theme-light pre[class*="language-"]
+{
+  background-color: var(--background-primary-alt);
+}
+.theme-light .token.operator,
+.theme-light .token.entity,
+.theme-light .token.url,
+.theme-light .language-css .token.string,
+.theme-light .style .token.string {
+  background-color: transparent;
+}
+
+.theme-dark .token.function,
+.theme-dark .token.class-name, 
+.theme-light .token.function,
+.theme-light .token.class-name {
+  color: #DD4A68;
+}
+
+.theme-light .token.comment,
+.theme-light .token.prolog,
+.theme-light .token.doctype,
+.theme-light .token.cdata {
+  color: slategray;
+}
+.theme-light .token.punctuation {
+  color: #f8f8f2;
+}
+.theme-light .token.namespace {
+  opacity: 0.7;
+}
+.theme-light .token.property,
+.theme-light .token.tag,
+.theme-light .token.constant,
+.theme-light .token.symbol,
+.theme-light .token.deleted {
+  color: #f92672;
+}
+.theme-light .token.boolean,
+.theme-light .token.number {
+  color: #ae81ff;
+}
+.theme-light .token.selector,
+.theme-light .token.attr-name,
+.theme-light .token.string,
+.theme-light .token.char,
+.theme-light .token.builtin,
+.theme-light .token.inserted {
+  color: #a6e22e;
+}
+.theme-light .token.operator,
+.theme-light .token.entity,
+.theme-light .token.url,
+.theme-light .language-css .token.string,
+.theme-light .style .token.string,
+.theme-light .token.variable {
+  color: #f8f8f2;
+}
+.theme-light .token.atrule,
+.theme-light .token.attr-value{
+  color: #e6db74;
+}
+.theme-light .token.keyword {
+  color: #66d9ef;
+}
+.theme-light .token.regex,
+.theme-light .token.important {
+  color: #fd971f;
+}
+.theme-light .token.important,
+.theme-light .token.bold {
+  font-weight: bold;
+}
+.theme-light .token.italic {
+  font-style: italic;
+}
+.theme-light .token.entity {
+  cursor: help;
 }
 
 /***************************************/
@@ -402,15 +483,14 @@ code{
   font-size: var(--font-size-code) !important;
   padding: 1px !important;
   display: block;
-  background-color: var(--pre-code-bg);    
   color: var(--code-block) !important;
   font-weight: 500;
 }
 
-/*remove the border of codeblock in editor when the background color is not defined
+/*remove the border of codeblock in editor */
 .HyperMD-codeblock-bg{
   border: 0px !important;
-}*/
+}
 
 /*vim active line*/
 .CodeMirror-activeline .CodeMirror-linebackground{
