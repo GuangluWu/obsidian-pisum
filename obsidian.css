@@ -277,6 +277,7 @@ img:hover {
   transition: transform 0.25s ease-in-out 0s;
 }
 
+/*disable image resize in setting pane*/
 .community-theme img:hover{
   transform: none;
 }
@@ -284,6 +285,11 @@ img:hover {
 /* Changing size/color of the header hashtags ## */
 .cm-formatting-header {
   font-size: 0.6em !important;
+}
+
+/*text between :: show same color as normal text*/
+.cm-formatting-emoji{
+  color: var(--text-normal) !important;
 }
 
 /*********************************/
@@ -492,8 +498,13 @@ code{
   border: 0px !important;
 }
 
-/*an active line highlight in vim normal mode */
+/*an active line highlight in vim normal mode 
 .cm-fat-cursor .CodeMirror-activeline .CodeMirror-linebackground{
+  background-color: var(--text-selection) !important;
+} */
+
+/*if you want the highlight to present in both normal and insert mode of vim*/
+.CodeMirror-activeline .CodeMirror-linebackground{
   background-color: var(--text-selection) !important;
 }
 
