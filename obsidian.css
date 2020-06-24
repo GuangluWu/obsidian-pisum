@@ -62,6 +62,7 @@
   --blockquote-border:          #b57614;
   --vim-cursor:                 #d65d0e;
   --border-color:               #504945; /*also like transparent*/
+  --hover-bg:                   rgba(0, 0, 0, 0.5); 
 }
 /* better use rgba color for all color var ended with `bg`*/
 
@@ -290,6 +291,18 @@ img:hover {
 /*text between :: show same color as normal text*/
 .cm-formatting-emoji{
   color: var(--text-normal) !important;
+}
+
+/* vim command dialog */
+.CodeMirror-dialog {
+  background-color: var(--background-secondary);
+  height: 2em;
+}
+
+.CodeMirror-dialog input{
+  font-family: var(--font-family-editor);
+  width: 90%;
+  padding-left: 1px;
 }
 
 /*********************************/
@@ -653,6 +666,13 @@ thead {
   border-top-right-radius: 0 !important;
 }
 
+.nav-file.is-active > .nav-file-title {
+  background-color: var(--hover-bg) !important; 
+}
+/* .nav-file-title:hover, .nav-folder-title:hover {
+  background-color: var(--hover-bg) !important;
+} */
+
 /*backlink pane*/
 .workspace-leaf-content[data-type="backlink"] .view-content{
   background-color: var(--background-secondary);
@@ -920,6 +940,7 @@ ul ul::before { left: -1em; top: 0; bottom: 0; }
 
 /* rule line when there are checkboxes*/
 ul .task-list-item ul::before {left: 0.15em !important}
+
 
 /* no good idea yet
 .cm-hmd-list-indent .cm-tab, ul ul { position: relative; }
