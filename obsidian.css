@@ -165,6 +165,22 @@ a.tag:hover {
   font-style: normal !important;
 }
 
+/* to customize tags */
+.tag[href="#obsidian"] { 
+/* .tag[href^="#obsidian"] match any tag started with "xxx"*/
+/* .tag[href="#obsidian"] exact match with "xxx"*/
+  background-color: black;
+  border: none;
+  color: white !important;
+  padding: 0px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 0px;
+  /* cursor: pointer; */
+  border-radius: 15px;
+}
+
 /*********************************/
 /*             link              */
 /*********************************/
@@ -643,6 +659,11 @@ thead {
 /***************************************/
 /*            Side panel               */
 /***************************************/
+
+/* background of search result */
+.search-result {
+  background-color: var(--background-primary);
+}
 
 /* search result in backlink or file search */
 .search-result-file-title {  
