@@ -663,6 +663,7 @@ thead {
 /* background of search result */
 .search-result {
   background-color: var(--background-primary);
+  border-radius: 5px;
 }
 
 /* search result in backlink or file search */
