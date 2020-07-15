@@ -301,7 +301,7 @@ img:hover {
 
 /* Changing size/color of the header hashtags ## */
 .cm-formatting-header {
-  font-size: 0.6em !important;
+  font-size: 1em !important;
 }
 
 /*text between :: show same color as normal text*/
@@ -676,7 +676,7 @@ thead {
 }
 
 /*decrease the spacing between result items*/
-.search-result-file-title,
+/*.search-result-file-title,*/
 .search-result-file-match {
   padding: 0px 10px;
 }
@@ -975,6 +975,13 @@ ul .task-list-item ul::before {left: 0.15em !important}
 ul ul::before { left: -1em; top: 0; bottom: 0; }
 */
 
+.cm-hmd-list-indent .cm-tab::before{
+    content: ' ';
+    border-left: 1px solid var(--border-color);
+    position: absolute;
+    height: 100%;
+}
+
 /***************************************/
 /*  Hide Scrollbar (recommend for mac)  */
 /***************************************/
@@ -1004,3 +1011,7 @@ ul ul::before { left: -1em; top: 0; bottom: 0; }
   display: none !important;
 }
 */
+
+/***************************************/
+/*             Psuedo-WYSIWYG          */
+/***************************************/
