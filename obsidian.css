@@ -516,7 +516,6 @@ code{
 .cm-s-obsidian pre.HyperMD-codeblock {
   font-family: monaco !important;
   font-size: var(--font-size-code) !important;
-  padding: 1px !important;
   display: block;
   color: var(--code-block) !important;
   font-weight: 500;
